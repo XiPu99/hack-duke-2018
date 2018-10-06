@@ -1,1 +1,3 @@
-# hack-duke-2018
+HackDuke 2018
+===
+Team Members: Xi Pu and Benjamin Xu
