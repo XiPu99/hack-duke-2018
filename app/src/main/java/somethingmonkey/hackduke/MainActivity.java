@@ -4,15 +4,19 @@ import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 public class MainActivity extends AppCompatActivity {
+    ProgressBar mProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.name);
+        mProgressBar = findViewById(R.id.progressBar);
     }
 
     @Override
@@ -28,6 +32,17 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void setProgressBar(View v){
+//        mProgressBar.setProgress(mProgressBar.getProgress()-10);
+        ProgressBarAnimation anim = new ProgressBarAnimation(mProgressBar, mProgressBar.getProgress(), 100);
+        anim.setDuration(1000);
+        mProgressBar.startAnimation(anim);
+    }
+
+    public void showDatePickerDialog(View v) {
+        DialogFragment newFragment = new DatePickerFragment();
+        newFragment.show(getSupportFragmentManager(), "datePicker");
+    }
 
     private void hideSystemUI(){
         View decorView = getWindow().getDecorView();
