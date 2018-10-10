@@ -8,4 +8,31 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- Full screen application theme -->
+    <style name="FullScreen" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- enable window content transitions -->
+        <item name="android:windowActivityTransitions">true</item>
+
+        <!--&lt;!&ndash; specify enter and exit transitions &ndash;&gt;-->
+        <!--<item name="android:windowEnterTransition">@transition/slide</item>-->
+        <!--<item name="android:windowExitTransition">@transition/slide</item>-->
+        <!--<item name="android:windowExitTransition">@transition/explode</item>-->
+
+        <!--<item name="android:activityOpenEnterAnimation">@anim/slide_in_left</item>-->
+        <!--<item name="android:activityOpenExitAnimation">@anim/slide_out_right</item>-->
+        <!--<item name="android:activityCloseEnterAnimation">@anim/slide_in_left</item>-->
+        <!--<item name="android:activityCloseExitAnimation">@anim/slide_out_right</item>-->
+
+        <!-- set this theme to full screen -->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+         <!--customize color scheme-->
+        <item name="colorControlNormal">#c5c5c5</item>
+        <item name="colorControlActivated">@color/colorAccent</item>
+        <item name="colorControlHighlight">@color/colorAccent</item>
+
+    </style>
+
 </resources>
