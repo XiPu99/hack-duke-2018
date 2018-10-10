@@ -4,8 +4,4 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <CheckedTextView
-        android:layout_width="214dp"
-        android:layout_height="176dp"/>
-
 </android.support.constraint.ConstraintLayout>

@@ -4,10 +4,13 @@ import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 public class MainActivity extends AppCompatActivity {
+    ProgressBar mProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,9 +25,21 @@ public class MainActivity extends AppCompatActivity {
 
     public void swipe(View v){
 //        getWindow().setExitTransition(new Slide(Gravity.LEFT));
-        Intent intent = new Intent(this, ScreenSlidePagerActivity.class);
-//        startActivity(intent,
-//                ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
+//        Intent intent = new Intent(this, ScreenSlidePagerActivity.class);
+////        startActivity(intent,
+////                ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
+//        startActivity(intent);
+    }
+
+    public void setProgressBar(View v){
+//        mProgressBar.setProgress(mProgressBar.getProgress()-10);
+        ProgressBarAnimation anim = new ProgressBarAnimation(mProgressBar, 0, 100);
+        anim.setDuration(1000);
+        mProgressBar.startAnimation(anim);
+    }
+
+    public void goToGenderSetup(View v){
+        Intent intent = new Intent(this, GenderPickerActivity.class);
         startActivity(intent);
     }
 
