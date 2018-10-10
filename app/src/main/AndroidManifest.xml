@@ -17,9 +17,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ScreenSlidePagerActivity">
-
+        <activity android:name=".GenderPickerActivity">
         </activity>
+
+        <activity android:name=".BirthdayPickerActivity"></activity>
 
     </application>
 

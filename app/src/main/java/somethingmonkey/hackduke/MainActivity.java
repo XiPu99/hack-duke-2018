@@ -16,7 +16,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.name);
-        mProgressBar = findViewById(R.id.progressBar);
     }
 
     @Override
@@ -26,23 +25,24 @@ public class MainActivity extends AppCompatActivity {
 
     public void swipe(View v){
 //        getWindow().setExitTransition(new Slide(Gravity.LEFT));
-        Intent intent = new Intent(this, ScreenSlidePagerActivity.class);
-//        startActivity(intent,
-//                ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
-        startActivity(intent);
+//        Intent intent = new Intent(this, ScreenSlidePagerActivity.class);
+////        startActivity(intent,
+////                ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
+//        startActivity(intent);
     }
 
     public void setProgressBar(View v){
 //        mProgressBar.setProgress(mProgressBar.getProgress()-10);
-        ProgressBarAnimation anim = new ProgressBarAnimation(mProgressBar, mProgressBar.getProgress(), 100);
+        ProgressBarAnimation anim = new ProgressBarAnimation(mProgressBar, 0, 100);
         anim.setDuration(1000);
         mProgressBar.startAnimation(anim);
     }
 
-    public void showDatePickerDialog(View v) {
-        DialogFragment newFragment = new DatePickerFragment();
-        newFragment.show(getSupportFragmentManager(), "datePicker");
+    public void goToGenderSetup(View v){
+        Intent intent = new Intent(this, GenderPickerActivity.class);
+        startActivity(intent);
     }
+
 
     private void hideSystemUI(){
         View decorView = getWindow().getDecorView();

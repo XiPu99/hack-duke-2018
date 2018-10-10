@@ -1,20 +1,19 @@
 package somethingmonkey.hackduke;
 
-import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.FragmentActivity;
 
-public class BirthdayPickerActivity extends FragmentActivity{
+public class GenderPickerActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-        setContentView(R.layout.birthday);
+
+        setContentView(R.layout.gender);
     }
 
     @Override
@@ -23,9 +22,8 @@ public class BirthdayPickerActivity extends FragmentActivity{
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
-    public void showDatePickerDialog(View v) {
-        DialogFragment newFragment = new DatePickerFragment();
-        newFragment.show(getSupportFragmentManager(), "datePicker");
+    public void goToBirthdayPicker(View v){
+        Intent intent = new Intent(this, BirthdayPickerActivity.class);
+        startActivity(intent);
     }
-
 }

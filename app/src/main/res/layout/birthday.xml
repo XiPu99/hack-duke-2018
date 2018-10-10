@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BirthdayPickerActivity">
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:onClick="showDatePickerDialog"
+        android:text="fuck"
+        tools:layout_editor_absoluteX="130dp"
+        tools:layout_editor_absoluteY="126dp"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="208dp"
+        android:elegantTextHeight="false"
+        android:fontFamily="sans-serif"
+        android:labelFor="@+id/textInputLayout"
+        android:minLines="2"
+        android:text="When were you born?"
+        android:textAllCaps="false"
+        android:textColor="@color/colorAccent"
+        android:textColorLink="@android:color/holo_red_light"
+        android:textSize="24pt"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:textColorLink="@color/colorAccent"/>
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="325dp"
+        android:layout_height="46dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:clickable="true"
+        android:gravity="center_horizontal"
+        android:hint="Choose your birthday"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.638"/>
+
+</android.support.constraint.ConstraintLayout>

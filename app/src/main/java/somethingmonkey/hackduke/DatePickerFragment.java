@@ -3,8 +3,10 @@ package somethingmonkey.hackduke;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -27,6 +29,8 @@ public class DatePickerFragment extends DialogFragment
 
     public void onDateSet(DatePicker view, int year, int month, int day) {
         // Do something with the date chosen by the user
+        Log.d("Date", String.format("Year:%d Month:%d Day:%d", year, month, day));
+
     }
 
 }
