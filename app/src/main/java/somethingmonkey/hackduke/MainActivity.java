@@ -13,7 +13,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
 
 public class MainActivity extends AppCompatActivity {
     ProgressBar mProgressBar;
@@ -26,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.name);
         nextButton = findViewById(R.id.next_button);
+        nextButton.hide();
         nameInput = findViewById(R.id.nameInput);
         nameInput.addTextChangedListener(new TextWatcher() {
             @Override
@@ -56,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
     }
-
 
 
     public void swipe(View v){
