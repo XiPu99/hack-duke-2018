@@ -7,25 +7,26 @@
     android:layout_height="match_parent"
     tools:context=".BirthdayPickerActivity">
 
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:onClick="showDatePickerDialog"
-        android:text="fuck"
-        tools:layout_editor_absoluteX="130dp"
-        tools:layout_editor_absoluteY="126dp"/>
+    <!--<Button-->
+        <!--android:layout_width="100dp"-->
+        <!--android:layout_height="100dp"-->
+        <!--android:onClick="showDatePickerDialog"-->
+        <!--android:text="fuck"-->
+        <!--tools:layout_editor_absoluteX="130dp"-->
+        <!--tools:layout_editor_absoluteY="33dp"/>-->
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="208dp"
         android:elegantTextHeight="false"
         android:fontFamily="sans-serif"
         android:labelFor="@+id/textInputLayout"
         android:minLines="2"
+        android:paddingRight="50dp"
         android:text="When were you born?"
         android:textAllCaps="false"
         android:textColor="@color/colorAccent"
@@ -35,25 +36,27 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.003"
         tools:textColorLink="@color/colorAccent"/>
 
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="325dp"
-        android:layout_height="46dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:id="@+id/birthdayTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:clickable="true"
-        android:gravity="center_horizontal"
+        android:focusable="true"
+        android:gravity="start"
         android:hint="Choose your birthday"
+        android:onClick="showDatePickerDialog"
+        android:textColor="@color/text_focus_color"
+        android:textSize="10pt"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.638"/>
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.026"/>
 
 </android.support.constraint.ConstraintLayout>

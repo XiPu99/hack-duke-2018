@@ -3,12 +3,16 @@ package somethingmonkey.hackduke;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.widget.DatePicker;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 import androidx.fragment.app.DialogFragment;
 
@@ -29,8 +33,14 @@ public class DatePickerFragment extends DialogFragment
 
     public void onDateSet(DatePicker view, int year, int month, int day) {
         // Do something with the date chosen by the user
-        Log.d("Date", String.format("Year:%d Month:%d Day:%d", year, month, day));
-
+        SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+        TextView birthdayTextView = getActivity().findViewById(R.id.birthdayTextView);
+        try {
+            Date date = fmt.parse(String.format("%d-%d-%d", year, month, day));
+            birthdayTextView.setText(DateFormat.getDateInstance(DateFormat.LONG).format(date));
+        } catch (ParseException e) {
+            Toast.makeText(getActivity(), "Date parsing error", Toast.LENGTH_LONG).show();
+        }
     }
 
 }

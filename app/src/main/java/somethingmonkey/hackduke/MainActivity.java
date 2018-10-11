@@ -3,19 +3,53 @@ package somethingmonkey.hackduke;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.textfield.TextInputEditText;
+
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
 
 public class MainActivity extends AppCompatActivity {
     ProgressBar mProgressBar;
+    FloatingActionButton nextButton;
+    TextInputEditText nameInput;
+    boolean hide = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.name);
+        nextButton = findViewById(R.id.next_button);
+        nextButton.hide();
+        nameInput = findViewById(R.id.nameInput);
+        nameInput.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//                Log.d("Text", charSequence.toString());
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if(charSequence.length()==0){
+                    nextButton.hide();
+                }
+                else{
+                    nextButton.show();
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+//                Log.d("Text", editable.toString());
+            }
+        });
+
+
     }
 
     @Override
@@ -23,12 +57,16 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
     }
 
+
     public void swipe(View v){
-//        getWindow().setExitTransition(new Slide(Gravity.LEFT));
-//        Intent intent = new Intent(this, ScreenSlidePagerActivity.class);
-////        startActivity(intent,
-////                ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
-//        startActivity(intent);
+        if(!hide){
+            nextButton.hide();
+            hide = true;
+        }
+        else{
+            nextButton.show();
+            hide = false;
+        }
     }
 
     public void setProgressBar(View v){
