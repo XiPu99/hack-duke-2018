@@ -3,13 +3,19 @@ package somethingmonkey.hackduke;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 public class GenderPickerActivity extends AppCompatActivity{
     FloatingActionButton nextButton;
+    ImageView maleIcon;
+    ImageView femaleIcon;
+    boolean isMaleSelect = false;
+    boolean isFemaleSelect = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +24,9 @@ public class GenderPickerActivity extends AppCompatActivity{
         setContentView(R.layout.gender);
 
         nextButton = findViewById(R.id.next_button);
-//        nextButton.hide();
+        maleIcon = findViewById(R.id.maleIcon);
+        femaleIcon = findViewById(R.id.femaleIcon);
+        nextButton.hide();
     }
 
     @Override
@@ -31,4 +39,23 @@ public class GenderPickerActivity extends AppCompatActivity{
         Intent intent = new Intent(this, BirthdayPickerActivity.class);
         startActivity(intent);
     }
+
+    public void onClickMaleIcon(View v){
+        setIcon(maleIcon, R.drawable.m_select);
+        setIcon(femaleIcon, R.drawable.f_nonselect);
+    }
+
+    public void onClickFemaleIcon(View v){
+        setIcon(maleIcon, R.drawable.m_nonselect);
+        setIcon(femaleIcon, R.drawable.f_select);
+    }
+
+    private void setIcon(ImageView icon, int resid){
+        if(!nextButton.isShown()){
+            nextButton.show();
+        }
+        icon.setImageResource(resid);
+        femaleIcon.setColorFilter(ContextCompat.getColor(this, R.color.colorAccent), android.graphics.PorterDuff.Mode.MULTIPLY);
+    }
+
 }
