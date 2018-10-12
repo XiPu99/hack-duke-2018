@@ -24,7 +24,6 @@ public class GenderPickerActivity extends AppCompatActivity{
         nextButton = findViewById(R.id.next_button);
         maleIcon = findViewById(R.id.maleIcon);
         femaleIcon = findViewById(R.id.femaleIcon);
-//        nextButton.hide();
     }
 
     @Override
