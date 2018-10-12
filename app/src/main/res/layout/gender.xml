@@ -10,24 +10,21 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="208dp"
+        android:layout_marginBottom="372dp"
+        android:layout_marginStart="28dp"
         android:elegantTextHeight="false"
         android:fontFamily="sans-serif"
         android:gravity="start"
         android:labelFor="@+id/textInputLayout"
         android:minLines="2"
-        android:text="Gender"
+        android:text="What's your biological sex?"
         android:textAllCaps="false"
         android:textColor="@color/colorAccent"
         android:textColorLink="@android:color/holo_red_light"
-        android:textSize="24pt"
+        android:textSize="20pt"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.027"
         tools:textColorLink="@color/colorAccent"/>
 
 
@@ -51,24 +48,44 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.873"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.727"/>
+        app:layout_constraintTop_toBottomOf="@+id/femaleIcon"
+        app:layout_constraintVertical_bias="0.727"
+        android:visibility="invisible"/>
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="146dp"
-        android:layout_height="269dp"
-        android:src="@android:drawable/sym_def_app_icon"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="139dp"/>
+        android:id="@+id/maleIcon"
+        android:layout_width="142dp"
+        android:layout_height="139dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="40dp"
+        android:adjustViewBounds="false"
+        android:background="@drawable/ripple"
+        android:clickable="true"
+        android:onClick="onClickMaleIcon"
+        android:src="@drawable/m_nonselect"
+        android:tint="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.119"/>
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/femaleIcon"
         android:layout_width="146dp"
-        android:layout_height="192dp"
-        android:src="@android:drawable/sym_def_app_icon"
-        tools:layout_editor_absoluteX="194dp"
-        tools:layout_editor_absoluteY="260dp"/>
+        android:layout_height="140dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/ripple"
+        android:clickable="true"
+        android:onClick="onClickFemaleIcon"
+        android:src="@drawable/f_nonselect"
+        android:tint="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.133"/>
 
 
 </android.support.constraint.ConstraintLayout>

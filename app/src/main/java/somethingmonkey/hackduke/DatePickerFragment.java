@@ -36,7 +36,7 @@ public class DatePickerFragment extends DialogFragment
         SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
         TextView birthdayTextView = getActivity().findViewById(R.id.birthdayTextView);
         try {
-            Date date = fmt.parse(String.format("%d-%d-%d", year, month, day));
+            Date date = fmt.parse(String.format("%d-%d-%d", year, month+1, day)); // add 1 to month because month starts from 0 like an array index
             birthdayTextView.setText(DateFormat.getDateInstance(DateFormat.LONG).format(date));
         } catch (ParseException e) {
             Toast.makeText(getActivity(), "Date parsing error", Toast.LENGTH_LONG).show();
