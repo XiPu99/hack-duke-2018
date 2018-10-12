@@ -23,6 +23,7 @@ TBD
 ## What's next for Vanguard?
 TBD
 ## References
+* Liu, Y., & Gopalakrishnan, V. (2017). An overview and evaluation of recent machine learning imputation methods using cardiac imaging data. Data, 2(1), 8.
 *  "NHLBI, Estimate of 10-Year Risk for CHD". Nhlbi.nih.gov. Retrieved 2018-10-12.
 * J. Vesanto, J.E. Himberg, E. Alhoniemi, J. Parhankangas
 Report A57
