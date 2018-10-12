@@ -14,8 +14,6 @@ public class GenderPickerActivity extends AppCompatActivity{
     FloatingActionButton nextButton;
     ImageView maleIcon;
     ImageView femaleIcon;
-    boolean isMaleSelect = false;
-    boolean isFemaleSelect = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +24,7 @@ public class GenderPickerActivity extends AppCompatActivity{
         nextButton = findViewById(R.id.next_button);
         maleIcon = findViewById(R.id.maleIcon);
         femaleIcon = findViewById(R.id.femaleIcon);
-        nextButton.hide();
+//        nextButton.hide();
     }
 
     @Override
@@ -51,9 +49,7 @@ public class GenderPickerActivity extends AppCompatActivity{
     }
 
     private void setIcon(ImageView icon, int resid){
-        if(!nextButton.isShown()){
-            nextButton.show();
-        }
+        nextButton.show();
         icon.setImageResource(resid);
         femaleIcon.setColorFilter(ContextCompat.getColor(this, R.color.colorAccent), android.graphics.PorterDuff.Mode.MULTIPLY);
     }

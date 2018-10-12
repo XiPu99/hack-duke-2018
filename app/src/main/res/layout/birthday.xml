@@ -26,6 +26,7 @@
         android:fontFamily="sans-serif"
         android:labelFor="@+id/textInputLayout"
         android:minLines="2"
+        android:paddingLeft="0dp"
         android:paddingRight="50dp"
         android:text="When were you born?"
         android:textAllCaps="false"
@@ -39,24 +40,44 @@
         app:layout_constraintVertical_bias="0.003"
         tools:textColorLink="@color/colorAccent"/>
 
-
     <TextView
         android:id="@+id/birthdayTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
+        android:layout_weight="1"
+        android:alpha="0.5"
         android:clickable="true"
+        android:drawablePadding="10dp"
+        android:drawingCacheQuality="low"
         android:focusable="true"
         android:gravity="start"
         android:hint="Choose your birthday"
         android:onClick="showDatePickerDialog"
-        android:textColor="@color/text_focus_color"
+        android:textColor="@color/colorAccent"
+        android:textColorHint="@color/colorAccent"
         android:textSize="10pt"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.326"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.026"/>
+        app:layout_constraintVertical_bias="0.073"
+        android:background="?attr/selectableItemBackground"/>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="40dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        android:src="@drawable/calendar_alt"
+        app:layout_constraintEnd_toStartOf="@+id/birthdayTextView"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"/>
+
 
 </android.support.constraint.ConstraintLayout>
