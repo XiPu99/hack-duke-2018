@@ -58,7 +58,7 @@ public class Imputer {
             bmu = qb[1];
             qerrors = subtractMatrix(new double[][]{qb[0]}, scalar(-1,dconst))[0];
         }
-        return new double[]{bmu[0],qerrors[0]};
+        return new double[]{bmu[0]+1,qerrors[0]};
     }
 
 

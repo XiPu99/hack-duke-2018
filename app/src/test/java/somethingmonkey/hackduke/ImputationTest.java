@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 
 public class ImputationTest {
 
-    Map map = new Map("E:\\Duke\\FALL 2018\\HackDuke2018\\hack-duke-2018\\app\\src\\test\\res\\codebook.csv",
+    Map map = new Map(null,"E:\\Duke\\FALL 2018\\HackDuke2018\\hack-duke-2018\\app\\src\\test\\res\\codebook.csv",
             "E:\\Duke\\FALL 2018\\HackDuke2018\\hack-duke-2018\\app\\src\\test\\res\\mask.csv");
 
     @Test

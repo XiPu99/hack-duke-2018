@@ -1,6 +1,7 @@
 package somethingmonkey.hackduke;
 
 import android.app.ActivityOptions;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -13,8 +14,11 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 
 import androidx.appcompat.app.AppCompatActivity;
+import somethingmonkey.hackduke.Impute.Imputer;
+import somethingmonkey.hackduke.Impute.Map;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
+    private static Context context;
     ProgressBar mProgressBar;
     FloatingActionButton nextButton;
     TextInputEditText nameInput;
@@ -24,6 +28,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.name);
+        context = this;
+        if(context==null)Log.d("test1","fk");
+        else Log.d("test1","nice");
+        Map map = new Map();
+        Log.d("Map",String.valueOf(map.getCodebook().length)+" "+String.valueOf(map.getCodebook()[0].length));
+        Log.d("Mask",String.valueOf(map.getMask().length));
+        Log.d("Mask value",String.valueOf(map.getMask()[0]));
+        Imputer imp = new Imputer(map);
+        Log.d("Imputer","initialized");
+        double[] result = imp.impute(new String[][]{{"0.5","NA","NA","NA"}});
+        Log.d("result",String.valueOf(result[0]));
         nextButton = findViewById(R.id.next_button);
         nextButton.hide();
         nameInput = findViewById(R.id.nameInput);
@@ -57,6 +72,10 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
     }
 
+    public static Context getAppContext() {
+        Log.d("context request","called!");
+        return context;
+    }
 
     public void swipe(View v){
         if(!hide){
