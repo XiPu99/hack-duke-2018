@@ -7,14 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".BirthdayPickerActivity">
 
-    <!--<Button-->
-        <!--android:layout_width="100dp"-->
-        <!--android:layout_height="100dp"-->
-        <!--android:onClick="showDatePickerDialog"-->
-        <!--android:text="fuck"-->
-        <!--tools:layout_editor_absoluteX="130dp"-->
-        <!--tools:layout_editor_absoluteY="33dp"/>-->
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -80,6 +72,27 @@
         android:clickable="true"
         android:onClick="showDatePickerDialog"
         android:background="?attr/selectableItemBackgroundBorderless"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/next_button"
+        android:layout_width="66dp"
+        android:layout_height="55dp"
+        android:layout_gravity="center"
+        android:layout_margin="16dp"
+        android:layout_marginBottom="60dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="goToMainScreen"
+        android:src="@drawable/round_arrow_forward_24px"
+        app:backgroundTint="@color/colorAccent"
+        app:fabCustomSize="55dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.897"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/birthdayTextView"
+        app:layout_constraintVertical_bias="0.755"/>
 
 
 </android.support.constraint.ConstraintLayout>

@@ -1,16 +1,15 @@
 package somethingmonkey.hackduke;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-
-public class GenderPickerActivity extends AppCompatActivity{
+public class GenderPickerActivity extends Activity {
     FloatingActionButton nextButton;
     ImageView maleIcon;
     ImageView femaleIcon;
