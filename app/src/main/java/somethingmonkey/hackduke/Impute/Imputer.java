@@ -61,5 +61,14 @@ public class Imputer {
         return new double[]{bmu[0]+1,qerrors[0]};
     }
 
+    private String[][] norm(String[][] data){
+        String[][] result = new String[data.length][data[0].length];
+        for(int i=0;i<data.length;i++){
+            for(int j=0;j<data[0].length;j++){
+                result[i][j] = String.valueOf(((Double.parseDouble(data[i][j]))-myMap.getDecoder()[0][j])/myMap.getDecoder()[1][j]);
+            }
+        }
+        return result;
+    }
 
 }
