@@ -1,8 +1,10 @@
 package somethingmonkey.hackduke;
 
+import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -23,13 +25,28 @@ public class MainScreenActivity extends AppCompatActivity implements NavigationV
         setNavigationViewListner();
 
         mDrawerLayout = findViewById(R.id.drawer_layout);
+
+        MainFragment fragment = new MainFragment();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().add(R.id.content_frame, fragment, "maintag").commit();
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionbar = getSupportActionBar();
-        actionbar.setDisplayHomeAsUpEnabled(true);
-        actionbar.setHomeAsUpIndicator(R.drawable.bars_solid);
+        if (actionbar != null) {
+            actionbar.setDisplayHomeAsUpEnabled(true);
+            actionbar.setHomeAsUpIndicator(R.drawable.bars_solid);
+        }
         getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -50,6 +67,12 @@ public class MainScreenActivity extends AppCompatActivity implements NavigationV
             case R.id.nav_home: {
                 //do somthing
                 break;
+            }
+
+            case R.id.nav_health:{
+                TaskFragment fragment = new TaskFragment();
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
             }
         }
         //close navigation drawer

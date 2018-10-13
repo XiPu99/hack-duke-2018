@@ -23,7 +23,7 @@
         android:text="When were you born?"
         android:textAllCaps="false"
         android:textColor="@color/colorAccent"
-        android:textColorLink="@android:color/holo_red_light"
+        android:textColorLink="@color/colorAccent"
         android:textSize="24pt"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -64,14 +64,14 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_weight="1"
-        android:src="@drawable/calendar_alt"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:onClick="showDatePickerDialog"
+        android:src="@drawable/calendar"
         app:layout_constraintEnd_toStartOf="@+id/birthdayTextView"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/birthdayTextView"
-        android:clickable="true"
-        android:onClick="showDatePickerDialog"
-        android:background="?attr/selectableItemBackgroundBorderless"/>
+        app:layout_constraintTop_toTopOf="@+id/birthdayTextView"/>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/next_button"

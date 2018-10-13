@@ -37,19 +37,19 @@ public class GenderPickerActivity extends Activity {
     }
 
     public void onClickMaleIcon(View v){
-        setIcon(maleIcon, R.drawable.m_select);
-        setIcon(femaleIcon, R.drawable.f_nonselect);
+        setIcon(maleIcon, R.drawable.ic_male_select);
+        setIcon(femaleIcon, R.drawable.ic_venus_solid);
     }
 
     public void onClickFemaleIcon(View v){
-        setIcon(maleIcon, R.drawable.m_nonselect);
-        setIcon(femaleIcon, R.drawable.f_select);
+        setIcon(maleIcon, R.drawable.ic_mars_solid);
+        setIcon(femaleIcon, R.drawable.ic_female_select);
     }
 
     private void setIcon(ImageView icon, int resid){
         nextButton.show();
         icon.setImageResource(resid);
-        femaleIcon.setColorFilter(ContextCompat.getColor(this, R.color.colorAccent), android.graphics.PorterDuff.Mode.MULTIPLY);
+//        femaleIcon.setColorFilter(ContextCompat.getColor(this, R.color.colorAccent), android.graphics.PorterDuff.Mode.MULTIPLY);
     }
 
 }
