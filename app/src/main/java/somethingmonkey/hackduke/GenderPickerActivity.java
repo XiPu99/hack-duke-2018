@@ -1,16 +1,15 @@
 package somethingmonkey.hackduke;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-
-public class GenderPickerActivity extends AppCompatActivity{
+public class GenderPickerActivity extends Activity {
     FloatingActionButton nextButton;
     ImageView maleIcon;
     ImageView femaleIcon;
@@ -38,19 +37,19 @@ public class GenderPickerActivity extends AppCompatActivity{
     }
 
     public void onClickMaleIcon(View v){
-        setIcon(maleIcon, R.drawable.m_select);
-        setIcon(femaleIcon, R.drawable.f_nonselect);
+        setIcon(maleIcon, R.drawable.ic_male_select);
+        setIcon(femaleIcon, R.drawable.ic_venus_solid);
     }
 
     public void onClickFemaleIcon(View v){
-        setIcon(maleIcon, R.drawable.m_nonselect);
-        setIcon(femaleIcon, R.drawable.f_select);
+        setIcon(maleIcon, R.drawable.ic_mars_solid);
+        setIcon(femaleIcon, R.drawable.ic_female_select);
     }
 
     private void setIcon(ImageView icon, int resid){
         nextButton.show();
         icon.setImageResource(resid);
-        femaleIcon.setColorFilter(ContextCompat.getColor(this, R.color.colorAccent), android.graphics.PorterDuff.Mode.MULTIPLY);
+//        femaleIcon.setColorFilter(ContextCompat.getColor(this, R.color.colorAccent), android.graphics.PorterDuff.Mode.MULTIPLY);
     }
 
 }

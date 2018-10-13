@@ -1,11 +1,9 @@
 package somethingmonkey.hackduke;
 
+import android.app.Activity;
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-
-public class ScreenSlidePagerActivity extends AppCompatActivity {
+public class ScreenSlidePagerActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

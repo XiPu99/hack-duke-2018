@@ -1,18 +1,20 @@
 package somethingmonkey.hackduke;
 
-import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.TextInputEditText;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.textfield.TextInputEditText;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     ProgressBar mProgressBar;
@@ -20,12 +22,13 @@ public class MainActivity extends AppCompatActivity {
     TextInputEditText nameInput;
     boolean hide = false;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.name);
+
         nextButton = findViewById(R.id.next_button);
-        nextButton.hide();
         nameInput = findViewById(R.id.nameInput);
         nameInput.addTextChangedListener(new TextWatcher() {
             @Override
@@ -68,6 +71,19 @@ public class MainActivity extends AppCompatActivity {
             hide = false;
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public void setProgressBar(View v){
 //        mProgressBar.setProgress(mProgressBar.getProgress()-10);
