@@ -38,7 +38,7 @@
                     android:gravity="center"
                     android:text="38%"
                     android:textColor="@color/white"
-                    android:textSize="24pt"
+                    android:textSize="30pt"
                     app:layout_constraintBottom_toBottomOf="@+id/progressBar"
                     app:layout_constraintEnd_toEndOf="@+id/progressBar"
                     app:layout_constraintHorizontal_bias="0.504"
@@ -49,8 +49,8 @@
                 <ProgressBar
                     android:id="@+id/progressBar"
                     style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="226dp"
-                    android:layout_height="217dp"
+                    android:layout_width="294dp"
+                    android:layout_height="272dp"
                     android:layout_gravity="center"
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"
@@ -99,7 +99,7 @@
     </android.support.constraint.ConstraintLayout>
 
     <android.support.design.widget.NavigationView
-        android:id="@+id/navigation"
+        android:id="@+id/navigation_view"
         android:layout_width="300dp"
         android:layout_height="match_parent"
         app:headerLayout="@layout/nav_header"
