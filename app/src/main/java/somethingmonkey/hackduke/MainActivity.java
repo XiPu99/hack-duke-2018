@@ -1,5 +1,7 @@
 package somethingmonkey.hackduke;
 
+import android.arch.persistence.room.Database;
+import android.arch.persistence.room.Room;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -11,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -53,6 +56,14 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                testDb();
+            }
+        }) .start();
+
     }
 
     @Override
@@ -75,11 +86,27 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    private void testDb(){
+//        DataDataBase db = Room.databaseBuilder(getApplicationContext(),
+//                DataDataBase.class, "database-name").build();
+//
+//        DataEntity test = new DataEntity(0,0,0,0,0,
+//                0,0,00,0,0,0,0,0,0,0,"","");
+//
+////        db.daoAccess().deleteAll();
+//
+//        db.daoAccess().insertAll(test);
+//
+//        for(DataEntity d: db.daoAccess().findUserWithName("")){
+//            Log.d("Data", d.toString());
+//        }
 
 
 
-
-
+//        for( DataEntity d: db.daoAccess().getAll() ){
+//            Log.d("Data", d.toString());
+//        }
+    }
 
 
 

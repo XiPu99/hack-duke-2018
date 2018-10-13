@@ -23,4 +23,10 @@ public interface DataDao {
     @Delete
     void delete(DataEntity user);
 
+    @Query("SELECT * FROM DataEntity WHERE date LIKE :strdate")
+    public List<DataEntity> findUserWithName(String strdate);
+
+    @Query("DELETE FROM DataEntity")
+    void deleteAll();
+
 }
