@@ -21,10 +21,12 @@ public class Imputer {
         //Map setup
         double[][] M = myMap.getCodebook();
         int[] mdim = dim(M);
+        System.out.println(mdim[0]+" "+mdim[1]);
         //Data setup
         String[][] D = data;
         int[] ddim = dim(D);
-        if(mdim!=ddim){
+        System.out.println(ddim[0]+" "+ddim[1]);
+        if(mdim[1]!=ddim[1]){
             System.out.println("Map and Data dimension mismatch!");
             return new double[]{};
         }
@@ -37,17 +39,18 @@ public class Imputer {
         int blen = Math.min(mdim[0],ddim[0]);
         //handle unknown components
         boolean[][] Known = known(D);
-        double[][] W1 = multMatrix(mult(new double[][]{mask},ones(1,ddim[0])),parseBoolMatrix(ctranspose(Known)));
+        double[][] W1 = multMatrix(mult(ctranspose(new double[][]{mask}),ones(1,ddim[0])),parseBoolMatrix(ctranspose(Known)));
 
         D = zeroNA(D);
         //constant matrices
         double[][] WD = scalar(2,mult(diag(mask),parseStringMatrix(ctranspose(D))));
-        double[][] dconst = mult(expMatrix(2,parseStringMatrix(D)),new double[][]{mask});
+        double[][] dconst = mult(expMatrix(2,parseStringMatrix(D)),ctranspose(new double[][]{mask}));
 
         int i=0;
         while(i+1<=ddim[0]){
             //calculate distance
             int[] inds = range(i+1,Math.min(ddim[0],i+blen));
+            i+=blen;
             double[][] Dist = subtractMatrix(mult(expMatrix(2,M),colSelect(inds,W1)),mult(M,colSelect(inds,WD)));
 
             //find the bmus and the corresponding quantization errors

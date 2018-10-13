@@ -24,13 +24,14 @@ public class ImputeUtil {
 
     //find minimum in each column of a matrix and which entry it belongs to
     public static double[][] min(double[][] data){
+        System.out.println("data rows "+data.length+" data cols "+data[0].length);
         double[][] result = new double[2][data[0].length];
         for(int i=0;i<data[0].length;i++){
             double min = data[i][0];
             int index = 0;
             for(int j=1;j<data.length;j++){
-                if(data[i][j]<min){
-                    min = data[i][j];
+                if(data[j][i]<min){
+                    min = data[j][i];
                     index = j;
                 }
             }
@@ -42,8 +43,8 @@ public class ImputeUtil {
 
     //create integer array for range given
     public static int[] range(int a, int b){
-        int[] result = new int[b-a];
-        for(int i=0;i<b;i++){
+        int[] result = new int[b-a+1];
+        for(int i=0;i<b-a+1;i++){
             result[i] = a+i;
         }
         return result;
@@ -63,9 +64,9 @@ public class ImputeUtil {
     //extract specific columns of a matrix
     public static double[][] colSelect(int[] cols, double[][] matrix){
         double[][] result = new double[matrix.length][cols.length];
-        for(int i=0;i<matrix.length;i++){
-            for(int j=0;j<cols.length;j++){
-                result[i][j] = matrix[i][cols[j]];
+        for(int i=0;i<cols.length;i++){
+            for(int j=0;j<matrix.length;j++){
+                result[j][i]=matrix[j][cols[i]-1];
             }
         }
         return result;
@@ -198,6 +199,17 @@ public class ImputeUtil {
         return data;
     }
 
+    //complex conjugate transpose for double
+    public static double[][] ctranspose(double[][] data){
+        double[][] result = new double[data[0].length][data.length];
+        for(int i=0;i<data.length;i++){
+            for(int j=0;j<data[0].length;j++){
+                result[j][i]=data[i][j];
+            }
+        }
+        return result;
+    }
+
     //complex conjugate transpose for boolean
     public static boolean[][] ctranspose(boolean[][] data){
         boolean[][] result = new boolean[data[0].length][data.length];
@@ -246,12 +258,12 @@ public class ImputeUtil {
     public static int[] dim(Object[][] data){
         int r = data.length;
         int c = data[0].length;
-        return new int[]{r,c,};
+        return new int[]{r,c};
     }
 
     public static int[] dim(double[][] data){
         int r = data.length;
         int c = data[0].length;
-        return new int[]{r,c,};
+        return new int[]{r,c};
     }
 }
