@@ -2,20 +2,28 @@ package somethingmonkey.hackduke;
 
 import android.app.ActivityOptions;
 import android.content.Context;
+import android.arch.persistence.room.Database;
+import android.arch.persistence.room.Room;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.TextInputEditText;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.textfield.TextInputEditText;
-
-import androidx.appcompat.app.AppCompatActivity;
 import somethingmonkey.hackduke.Impute.Imputer;
 import somethingmonkey.hackduke.Impute.Map;
+
 
 public class MainActivity extends AppCompatActivity{
     private static Context context;
@@ -23,6 +31,7 @@ public class MainActivity extends AppCompatActivity{
     FloatingActionButton nextButton;
     TextInputEditText nameInput;
     boolean hide = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +50,6 @@ public class MainActivity extends AppCompatActivity{
         Log.d("result",String.valueOf(result[0]));
         Log.d("age",String.valueOf(map.getEntry((int)result[0],0)));*/
         nextButton = findViewById(R.id.next_button);
-        nextButton.hide();
         nameInput = findViewById(R.id.nameInput);
         nameInput.addTextChangedListener(new TextWatcher() {
             @Override
@@ -66,6 +74,14 @@ public class MainActivity extends AppCompatActivity{
         });
 
 
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                testDb();
+            }
+        }) .start();
+
     }
 
     @Override
@@ -88,6 +104,35 @@ public class MainActivity extends AppCompatActivity{
             hide = false;
         }
     }
+
+
+
+
+    private void testDb(){
+//        DataDataBase db = Room.databaseBuilder(getApplicationContext(),
+//                DataDataBase.class, "database-name").build();
+//
+//        DataEntity test = new DataEntity(0,0,0,0,0,
+//                0,0,00,0,0,0,0,0,0,0,"","");
+//
+////        db.daoAccess().deleteAll();
+//
+//        db.daoAccess().insertAll(test);
+//
+//        for(DataEntity d: db.daoAccess().findUserWithName("")){
+//            Log.d("Data", d.toString());
+//        }
+
+
+
+//        for( DataEntity d: db.daoAccess().getAll() ){
+//            Log.d("Data", d.toString());
+//        }
+    }
+
+
+
+
 
     public void setProgressBar(View v){
 //        mProgressBar.setProgress(mProgressBar.getProgress()-10);
