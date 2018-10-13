@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.name);
         context = this;
-        if(context==null)Log.d("test1","fk");
+        /*if(context==null)Log.d("test1","fk");
         else Log.d("test1","nice");
         Map map = new Map();
         Log.d("Map",String.valueOf(map.getCodebook().length)+" "+String.valueOf(map.getCodebook()[0].length));
@@ -37,9 +37,9 @@ public class MainActivity extends AppCompatActivity{
         Log.d("Mask value",String.valueOf(map.getMask()[0]));
         Imputer imp = new Imputer(map);
         Log.d("Imputer","initialized");
-        double[] result = imp.impute(new String[][]{{"NA","0","0","0","0","0","NA","174","78","4.78","0","0","NA","NA","7.60"}});
+        double[] result = imp.impute(new String[][]{{"60","0","0","0","0","0","NA","174","78","4.78","0","0","NA","NA","7.60"}});
         Log.d("result",String.valueOf(result[0]));
-        Log.d("age",String.valueOf(map.getEntry((int)result[0],0)));
+        Log.d("age",String.valueOf(map.getEntry((int)result[0],0)));*/
         nextButton = findViewById(R.id.next_button);
         nextButton.hide();
         nameInput = findViewById(R.id.nameInput);

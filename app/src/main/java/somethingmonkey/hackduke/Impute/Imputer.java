@@ -21,13 +21,10 @@ public class Imputer {
         //Map setup
         double[][] M = myMap.getCodebook();
         int[] mdim = dim(M);
-        System.out.println(mdim[0]+" "+mdim[1]);
         //Data setup
-        String[][] D = data;
+        String[][] D = norm(data);
         int[] ddim = dim(D);
-        System.out.println(ddim[0]+" "+ddim[1]);
         if(mdim[1]!=ddim[1]){
-            System.out.println("Map and Data dimension mismatch!");
             return new double[]{};
         }
         //Mask import
@@ -65,7 +62,12 @@ public class Imputer {
         String[][] result = new String[data.length][data[0].length];
         for(int i=0;i<data.length;i++){
             for(int j=0;j<data[0].length;j++){
-                result[i][j] = String.valueOf(((Double.parseDouble(data[i][j]))-myMap.getDecoder()[0][j])/myMap.getDecoder()[1][j]);
+                if("NA".equalsIgnoreCase(data[i][j])){
+                    result[i][j] = "NA";
+                }
+                else{
+                    result[i][j] = String.valueOf(((Double.parseDouble(data[i][j]))-myMap.getDecoder()[0][j])/myMap.getDecoder()[1][j]);
+                }
             }
         }
         return result;
