@@ -17,7 +17,7 @@ import android.view.View;
 public class MainScreenActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     DrawerLayout mDrawerLayout;
-
+    FragmentManager mFragmentManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,27 +25,27 @@ public class MainScreenActivity extends AppCompatActivity implements NavigationV
         setNavigationViewListner();
 
         mDrawerLayout = findViewById(R.id.drawer_layout);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        ActionBar actionbar = getSupportActionBar();
+        if (actionbar != null) {
+            actionbar.setDisplayHomeAsUpEnabled(true);
+//            actionbar.setHomeAsUpIndicator(R.drawable.bars_solid);
+        }
+        getSupportActionBar().setElevation(0);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        mDrawerLayout.setScrimColor(getResources().getColor(android.R.color.transparent));
 
         MainFragment fragment = new MainFragment();
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().add(R.id.content_frame, fragment, "maintag").commit();
+        mFragmentManager = getSupportFragmentManager();
+        mFragmentManager.beginTransaction().replace(R.id.content_view, fragment).commit();
 
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        ActionBar actionbar = getSupportActionBar();
-        if (actionbar != null) {
-            actionbar.setDisplayHomeAsUpEnabled(true);
-            actionbar.setHomeAsUpIndicator(R.drawable.bars_solid);
-        }
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
-
 
 
     @Override
@@ -66,13 +66,14 @@ public class MainScreenActivity extends AppCompatActivity implements NavigationV
 
             case R.id.nav_home: {
                 //do somthing
+                MainFragment fragment = new MainFragment();
+                mFragmentManager.beginTransaction().replace(R.id.content_view, fragment).commit();
                 break;
             }
 
             case R.id.nav_health:{
                 TaskFragment fragment = new TaskFragment();
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+                mFragmentManager.beginTransaction().replace(R.id.content_view, fragment).commit();
             }
         }
         //close navigation drawer
