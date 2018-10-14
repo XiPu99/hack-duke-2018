@@ -23,6 +23,7 @@ import android.widget.ProgressBar;
 
 import somethingmonkey.hackduke.Impute.Imputer;
 import somethingmonkey.hackduke.Impute.Map;
+import somethingmonkey.hackduke.Model.CSPPTModel;
 
 
 public class MainActivity extends AppCompatActivity{
@@ -38,6 +39,8 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.name);
         context = this;
+        CSPPTModel cm =  new CSPPTModel();
+        //Log.d("score",String.valueOf(cm.calculateRisk(new double[]{25,0,0,0,0,0,13,120,70,6.92,0,0,0,8.672,13.44})));
         /*if(context==null)Log.d("test1","fk");
         else Log.d("test1","nice");
         Map map = new Map();
